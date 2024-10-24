@@ -1,6 +1,4 @@
-
- 
-char one[8][12] = {
+char one[][12] = {
 "  $$\\   ",
 "$$$$ |   ",
 "\\_$$ |  ",
@@ -10,7 +8,7 @@ char one[8][12] = {
 "$$$$$$\\ ",
 "\\______|"};
 
-char two[8][12] = {
+char two[][12] = {
 " $$$$$$\\  ",
 "$$  __$$\\ ",
 "\\__/  $$ |",
@@ -20,5 +18,7 @@ char two[8][12] = {
 "$$$$$$$$\\ ",
 "\\________|"};
 
-const int art_width = sizeof(one[0])*4;
-const int art_height = sizeof(one)/12;
+const int art_length = sizeof(one[0])+1;        // The length of the ascii art
+const int art_height = sizeof(one)/art_length;  // The height of the ascii art
+
+const int display_length = art_length*4;        // The length of final combined ascii art
