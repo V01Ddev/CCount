@@ -4,18 +4,27 @@
 #include "BigMoney-nw.c"
 
 
-void asciicpy(char out[][display_length], char ascii_in[][art_length]){
+void asciicpy(char out[art_height][art_length], char ascii_in[art_height][art_length]){
     for (int i=0; i <= art_height; i++){
         strcpy(out[i], ascii_in[i]);
     }
+    /*
+    strcpy(out[0], ascii_in[0]);
+    strcpy(out[1], ascii_in[1]);
+    strcpy(out[2], ascii_in[2]);
+    strcpy(out[3], ascii_in[3]);
+    strcpy(out[4], ascii_in[4]);
+    strcpy(out[5], ascii_in[5]);
+    strcpy(out[6], ascii_in[6]);
+    strcpy(out[7], ascii_in[7]);
+    */
 }
 
 
-void asciicat(char out[art_height][art_length], char ascii_in[][art_length]){
-    for (int i=0; i < art_height; i++){
+void asciicat(char out[art_height][art_length], char ascii_in[art_height][art_length]){
+    for (int i=0; i <= art_height; i++){
         strcat(out[i], ascii_in[i]);
     }
-
 }
 
 
@@ -34,63 +43,40 @@ void print_time(WINDOW* win, char ascii_time[][display_length]){
     int x = mid_x - rows/2;
 
     for (int i=0; i < rows; i++){
-        mvprintw(y, x, "%s\n", ascii_time[i]);
+        mvprintw(y, x, "%s", ascii_time[i]);
         y++;
     }
 }
 
 int main() {
 
-    /*
-    WINDOW* win = initscr();
-    refresh();
-    */
+    // WINDOW* win = initscr();
+    // refresh();
 
     char display[art_height][display_length];
 
-    asciicpy(display, one);
-    asciicat(display, two);
 
-    strcpy(display[0], one[0]);
-    strcpy(display[1], one[1]);
-    strcpy(display[2], one[2]);
-    strcpy(display[3], one[3]);
-    strcpy(display[4], one[4]);
-    strcpy(display[5], one[5]);
-    strcpy(display[6], one[6]);
-    strcpy(display[7], one[7]);
-
-    strcat(display[0], two[0]);
-    strcat(display[1], two[1]);
-    strcat(display[2], two[2]);
-    strcat(display[3], two[3]);
-    strcat(display[4], two[4]);
-    strcat(display[5], two[5]);
-    strcat(display[6], two[6]);
-    strcat(display[7], two[7]);
-
-    /*
-    printf("%s\n", display[0]);
-    printf("%s\n", display[1]);
-    printf("%s\n", display[2]);
-    printf("%s\n", display[3]);
-    printf("%s\n", display[4]);
-    printf("%s\n", display[5]);
-    printf("%s\n", display[6]);
-    printf("%s\n", display[7]);
-    */
-
-    // Printing display array to analyse
-    for (int i=0; i <= art_height; i++) {
-        for (int j=0; j<=sizeof(display[i]); j++){
-            putchar(display[i][j]);
-        }
-        printf("\n");
+    for (int k=0; k<=art_height; k++){
+        strcpy(display[k], one[k]);
     }
 
-    /*
-    getch(); // Keeps window alive.
-    endwin();
-    */
+    for (int k=0; k<=art_height; k++){
+        printf("%s\n", display[k]);
+    }
+
+    printf("\n");
+    // Adding buffer
+
+    for (int k=0; k<=art_height; k++){
+        strcat(display[k], "  ");
+        strcat(display[k], two[k]);
+    }
+    
+    for (int k=0; k<=art_height; k++){
+        printf("%s\n", display[k]);
+    }
+
+    // getch(); // Keeps window alive.
+    // endwin();
     return 0;
 }
