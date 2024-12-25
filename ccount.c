@@ -4,8 +4,13 @@
 #include "BigMoney-nw.c"
 
 
-void asciicpy(char out[art_height][art_length], char ascii_in[art_height][art_length]){
+void ascii_strcpy(char out[][display_length], char ascii_in[][art_length]){
     for (int i=0; i <= art_height; i++){
+        // Clear the destination line
+
+        memset(out[i], ' ', display_length - 1);
+        out[i][display_length - 1] = '\0'; // Null-terminate the string
+ 
         strcpy(out[i], ascii_in[i]);
     }
     /*
@@ -21,7 +26,7 @@ void asciicpy(char out[art_height][art_length], char ascii_in[art_height][art_le
 }
 
 
-void asciicat(char out[art_height][art_length], char ascii_in[art_height][art_length]){
+void ascii_srtcat(char out[][art_length], char ascii_in[art_height][art_length]){
     for (int i=0; i <= art_height; i++){
         strcat(out[i], ascii_in[i]);
     }
@@ -56,23 +61,14 @@ int main() {
     char display[art_height][display_length];
 
 
-    for (int k=0; k<=art_height; k++){
+    /*
+    for (int k=0; k<art_height; k++){
         strcpy(display[k], one[k]);
     }
+    */
+    ascii_strcpy(display, one);
 
-    for (int k=0; k<=art_height; k++){
-        printf("%s\n", display[k]);
-    }
-
-    printf("\n");
-    // Adding buffer
-
-    for (int k=0; k<=art_height; k++){
-        strcat(display[k], "  ");
-        strcat(display[k], two[k]);
-    }
-    
-    for (int k=0; k<=art_height; k++){
+    for (int k=0; k<art_height; k++){
         printf("%s\n", display[k]);
     }
 
