@@ -20,6 +20,7 @@ void paused(){
     } while (p==0);
 }
 
+
 void helpMenu(){
     printf("[h] Pass your input as arguments\n");
     printf("[h] Example inputs:\n");
