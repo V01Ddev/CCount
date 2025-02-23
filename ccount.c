@@ -67,6 +67,12 @@ int main(int argc, char *argv[]) {
     int m_int = -1;
     int s_int = -1;
 
+    /*
+   long strtol(const char *restrict nptr, char **_Nullable restrict endptr, int base);
+    */
+
+    char *endptr;
+
     if (argc == 1){
         printf("[E] No input given!\n");
         printf("[h] Use -h to get some help!\n");
@@ -78,18 +84,18 @@ int main(int argc, char *argv[]) {
             helpMenu();
             return 0;
         }
-        s_int = atoi(argv[1]);
+        s_int = strtol(argv[1], &endptr, 10);
     }
 
     if (argc == 3){
-        s_int = atoi(argv[2]);
-        m_int = atoi(argv[1]);
+        s_int = strtol(argv[2], &endptr, 10);
+        m_int = strtol(argv[1], &endptr, 10);
     }
 
     if (argc == 4){
-        s_int = atoi(argv[3]);
-        m_int = atoi(argv[2]);
-        h_int = atoi(argv[1]);
+        s_int = strtol(argv[3], &endptr, 10);
+        m_int = strtol(argv[2], &endptr, 10);
+        h_int = strtol(argv[1], &endptr, 10);
     }
 
     if (argc > 4){

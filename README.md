@@ -1,6 +1,6 @@
 # CCount
 
-Simple countdown timer written in C and ncurses. _Stupidly_ using ```atoi``` so be gentle/safe with your input.
+Simple countdown timer written in C and ncurses. I am dumb and this program is most likely memory *unsafe*, use with to your own discretion.
 
 ## Example usage
 
