@@ -38,8 +38,6 @@ void countdown(int seconds) {
     curs_set(FALSE);
     timeout(0);
 
-    int seconds_left = seconds;
-
     int h, m, s;
 
     for (int i = seconds; i >= 0; i--) {
